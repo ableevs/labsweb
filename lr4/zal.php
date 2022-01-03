@@ -1,7 +1,38 @@
 <html>
 <head><title> Сведения о Кинозалах </title></head>
-<body>
+<body align="center">
+<style>
+body {
+  background-image: url('trav.gif');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+div {
+  /* Определим размер и выравнивание */
+  display: inline-block;
+  text-align: center;
+  opacity: 0.8;
+  background: #fff;
+  padding: 1em;
+  border: 1px solid #CCC;
+  border-radius: 1em;
+}
+lable {
+  /* Определим размер и выравнивание */
+  display: inline-block;
+  vertical-align: top;
+  opacity: 0.8;
+  background: #0001;
+  padding: 1em;
+  border: 1px solid #CCC;
+  border-radius: 1em;
+}
+</style>
+<lable align="center">
+<div align="center">
 <h2>Сведения о Кинозалах:</h2>
+</div><br>
+<div align="center">
 <table border="1">
     <tr>
         <th>id Зала</th>
@@ -35,5 +66,6 @@ print("<P>Всего Залов: $num_rows </p>");
 ?>
 <p><a href="new_zal.php"> Добавить Кинозал </a>
 <p><a href="index.php"> Вернуться назад </a>
+</div>
 </body>
 </html>

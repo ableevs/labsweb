@@ -1,7 +1,39 @@
 <html>
 <head><title>Киносеансы</title></head>
-<body>
+<body align="center">
+
+<style>
+body {
+  background-image: url('bil.gif');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+div {
+  /* Определим размер и выравнивание */
+  display: inline-block;
+  text-align: center;
+  opacity: 0.8;
+  background: #fff;
+  padding: 1em;
+  border: 1px solid #CCC;
+  border-radius: 1em;
+}
+lable {
+  /* Определим размер и выравнивание */
+  display: inline-block;
+  vertical-align: top;
+  opacity: 0.8;
+  background: #0001;
+  padding: 1em;
+  border: 1px solid #CCC;
+  border-radius: 1em;
+}
+</style>
+<lable align="center">
+<div align="center">
 <h2>Киносеансы:</h2>
+</div><br>
+<div align="center">
 <table border="1">
     <tr>
         <th>ID</th>
@@ -55,5 +87,6 @@ LEFT JOIN zal ON seans.id_zal=zal.id_zal");
     ?>
     <p><a href="new_seans.php"> Добавить Сеанс </a>
     <p><a href="index.php"> Вернуться назад </a>
+    </div>
 </body>
 </html>

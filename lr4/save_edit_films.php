@@ -14,9 +14,10 @@ $cinema = $_GET['cinema'];
 $director = $_GET['director'];
 $year = $_GET['year'];
 $fees = $_GET['fees'];
+$des = $_GET['des'];
 
 $zapros = "UPDATE films SET name_film='$name_film', cinema='$cinema',
-director='$director', `year`='$year', fees='$fees'
+director='$director', `year`='$year', fees='$fees', des='$des'
 WHERE id_film='$id_film'";
 
 $result = $mysqli->query($zapros);

@@ -8,6 +8,7 @@
     <br>Режиссер: <input name="director" size="50" type="text">
     <br>Год: <input name="year" size="5" type="int">
     <br>Сборы: <input name="fees" size="11" type="int">
+    <br>Описание: <input name="des" size="30" type="text">
     <p><input name="add" type="submit" value="Добавить">
         <input name="b2" type="reset" value="Очистить"></p>
 </form>

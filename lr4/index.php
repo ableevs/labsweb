@@ -1,7 +1,39 @@
 <html>
 <head><title> Сведения о Фильмах </title></head>
-<body>
+<body align="center">
+
+<style>
+body {
+  background-image: url('tobi.gif');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+div {
+  /* Определим размер и выравнивание */
+  display: inline-block;
+  text-align: center;
+  opacity: 0.8;
+  background: #fff;
+  padding: 1em;
+  border: 1px solid #CCC;
+  border-radius: 1em;
+}
+lable {
+  /* Определим размер и выравнивание */
+  display: inline-block;
+  vertical-align: top;
+  opacity: 0.8;
+  background: #0001;
+  padding: 1em;
+  border: 1px solid #CCC;
+  border-radius: 1em;
+}
+</style>
+<lable align="center">
+<div align="center">
 <h2>Сведения о Фильмах:</h2>
+</div><br>
+<div align="center">
 <table border="1">
     <tr>
         <th>ID</th>
@@ -10,6 +42,7 @@
         <th>Режиссер</th>
         <th>Год</th>
         <th>Сборы</th>
+        <th>Описание</th>
         <th>Редактировать</th>
         <th>Уничтожить</th>
     </tr>
@@ -18,7 +51,7 @@
     require_once 'connect1.php';
     $link = mysqli_connect($host, $user, $password, $database) or die ("Невозможно
 подключиться к серверу" . mysqli_error($link));
-    $result = mysqli_query($link, "SELECT id_film, name_film, cinema, director, `year`, fees
+    $result = mysqli_query($link, "SELECT id_film, name_film, cinema, director, `year`, fees, des
 FROM films");
     mysqli_select_db($link, "users");
 
@@ -30,6 +63,7 @@ FROM films");
         echo "<td>" . $row['director'] . "</td>";
         echo "<td>" . $row['year'] . "</td>";
         echo "<td>" . $row['fees'] . "</td>";
+        echo "<td>" . $row['des'] . "</td>";
         echo "<td><a href='edit_films.php?id_film=" . $row['id_film']
             . "'>Редактировать</a></td>"; // запуск скрипта для редактирования
         echo "<td><a href='delete_films.php?id_film=" . $row['id_film']
@@ -40,10 +74,14 @@ FROM films");
     $num_rows = mysqli_num_rows($result); // число записей в таблице БД
     print("<P>Всего Фильмов: $num_rows </p>");
     ?>
+    </div><br>
+    <div>
     <p><a href="new_films.php"> Добавить Фильм</a>
     <p><a href="seans.php">Киносеанс</a>
     <p><a href="zal.php">Кинозал</a>
     <p><a href="gen_pdf.php">Скачать pdf-файл</a>
     <p><a href="gen_xls.php">Скачать xls-файл</a>
+    </div>
+    </lable>
 </body>
 </html>

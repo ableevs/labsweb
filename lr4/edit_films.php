@@ -11,7 +11,7 @@ if ($mysqli->connect_errno) {
 }// установление соединения с сервером
 $id_film = $_GET['id_film'];
 
-$result = $mysqli->query("SELECT name_film, cinema, director, `year`, fees FROM films WHERE id_film='$id_film'");
+$result = $mysqli->query("SELECT name_film, cinema, director, `year`, fees, des FROM films WHERE id_film='$id_film'");
 if ($result) {
     while ($gm = $result->fetch_array()) {
         $name_film = $gm['name_film'];
@@ -19,6 +19,7 @@ if ($result) {
         $director = $gm['director'];
         $year = $gm['year'];
         $fees = $gm['fees'];
+        $des = $gm['des'];
     }
 }
 
@@ -33,7 +34,9 @@ print "<br>Год выпуска: <input name='year' size='30' type='text'
 value='$year'>";
 print "<br>Сборы: <input name='fees' size='11' type='int'
 value='$fees'>";
-print "<input type='hidden' name='id_f' size='11' type='int'
+print "<br>Описание: <input name='des' size='30' type='text'
+value='$des'>";
+print "<input type='hidden' name='id_film' size='11' type='int'
 value='$id_film'>";
 print "<input type='submit' name='save' value='Сохранить'>";
 print "</form>";

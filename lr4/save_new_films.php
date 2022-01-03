@@ -9,7 +9,7 @@ if (mysqli_connect_errno()) {
 mysqli_query($link, "INSERT INTO films SET name_film='" . $_GET['name_film']
     . "', cinema='" . $_GET['cinema'] . "', director='"
     . $_GET['director'] . "', `year`='" . $_GET['year'] .
-    "', fees='" . $_GET['fees'] . "'");
+    "', fees='" . $_GET['fees'] . "', des='" . $_GET['des'] . "'");
 if (mysqli_affected_rows($link) > 0)
 {
     print "<p>Спасибо, Фильм добавлен в базу данных.";
