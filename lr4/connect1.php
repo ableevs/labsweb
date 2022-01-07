@@ -1,7 +1,7 @@
 <?php
 $host = 'localhost';
-$database = 'a0613337_films';
-$user = 'a0613337_root';
+$database = 'a0616553_films';
+$user = 'a0616553_root';
 $password = 'root';
 //require_once 'connect.php';
 $link = mysqli_connect($host, $user, $password, $database)

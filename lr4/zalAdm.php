@@ -1,8 +1,8 @@
 <html>
 <head><title> Сведения о Кинозалах </title></head>
 <adm style="background:#ссс; top: 0px; right: 0px;">
-<h2>Оператор</h2>
-</adm><br><br><br><br>
+<h2>Администратор</h2>
+</adm><br><br><br><br><br><br>
 <body align="center">
 
 <style>
@@ -24,13 +24,13 @@ div {
 adm {
   /* Определим размер и выравнивание */
   position: absolute;
-  vertical-align: top;
+  text-align: right;
   color: red;
   opacity: 0.9;
   background: #000;
-  padding: 0.3em;
-  border: 0.5px solid #fff;
-  border-radius: 0.5em;
+  padding: 1em;
+  border: 1px solid #fff;
+  border-radius: 1em;
   
   top:100px;
 }
@@ -56,6 +56,7 @@ lable {
         <th>Название</th>
         <th>Категория</th>
         <th>Редактировать</th>
+        <th>Уничтожить</th>
     </tr>
     </tr>
     <?php
@@ -64,7 +65,7 @@ lable {
     $link = mysqli_connect($host, $user, $password, $database) or die ("Невозможно
 подключиться к серверу" . mysqli_error($link));
     $result = mysqli_query($link, "SELECT id_zal, name_z, cat_z FROM zal"); // запрос на выборку сведений о пользователях
-    mysqli_select_db($link, "users");
+    mysqli_select_db($link, "subj");
 
     while ($row = mysqli_fetch_array($result)) {// для каждой строки из запроса
         echo "<tr>";
@@ -73,6 +74,8 @@ lable {
         echo "<td>" . $row['cat_z'] . "</td>";
         echo "<td><a href='edit_zal.php?id_zal=" . $row['id_zal']
             . "'>Редактировать</a></td>"; // запуск скрипта для редактирования
+        echo "<td><a href='delete_zal.php?id_zal=" . $row['id_zal']
+            . "'>Удалить</a></td>"; // запуск скрипта для удаления записи
         echo "</tr>";
     }
     print "</table>";
@@ -85,6 +88,5 @@ lable {
         echo "<p><a href=filmAdm.php> Вернуться назад </a>";
     include("checkSession.php");
     ?>
-
 </body>
 </html>

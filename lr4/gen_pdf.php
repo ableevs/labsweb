@@ -1,4 +1,5 @@
 <?php
+include ("checks.php");
 require_once 'connect1.php';
 require('tfpdf/tfpdf.php');
 
@@ -20,7 +21,7 @@ $pdf->SetFillColor(200, 200, 200);
 $pdf->SetFontSize(6);
 
 $header = array("п/п", "Название фильма", "Жанр", "Год", "Кинозал", "Категория", "Дата и время", "Свободных мест");
-$w = array(6, 45, 30, 10, 20, 20, 30, 20);
+$w = array(6, 45, 35, 10, 20, 20, 30, 20);
 $h = 20;
 for ($c = 0; $c < 8; $c++) {
     $pdf->Cell($w[$c], $h, $header[$c], 'LRTB', '0', '', true);

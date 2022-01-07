@@ -1,6 +1,7 @@
 <html>
 <body>
 <?php
+include ("checks.php");
 require_once 'connect1.php';
 $mysqli = new mysqli($host, $user, $password, $database);
 if ($mysqli->connect_errno) {
@@ -17,9 +18,15 @@ $count_zan = $_GET['count_zan'];
 $result = $mysqli->query("UPDATE seans SET date_seans='$date_seans', id_film='$id_film', id_zal='$id_zal', count_svob='$count_svob', count_zan='$count_zan'  WHERE id='$id'");
 
 if ($result) {
-    echo 'Все сохранено. <a href="seans.php"> Вернуться к списку Сеансов </a>';
+    if ($_SESSION['type'] == 1)
+        echo "Все сохранено.<p><a href=sean.php> Вернуться к списку Сеансов </a>";
+    elseif ($_SESSION['type'] == 2)
+        echo "Все сохранено.<p><a href=seanAdm.php> Вернуться к списку Сеансов </a>";
 } else {
-    echo 'Ошибка сохранения. <a href="seans.php">Вернуться к списку Сеансов</a> ';
+    if ($_SESSION['type'] == 1)
+        echo "Ошибка сохранения. <p></p><a href=sean.php> Вернуться к списку Сеансов </a>";
+    elseif ($_SESSION['type'] == 2)
+        echo "Ошибка сохранения. <p><a href=seanAdm.php> Вернуться к списку Сеансов </a>";
 }
 ?>
 </body>
